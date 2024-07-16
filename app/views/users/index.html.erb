@@ -1,0 +1,42 @@
+<%= render "shared/header" %>
+<h3>予定一覧</h3>
+<p class="newButton"><%= link_to "新規追加", :new_user %></p>
+<% if flash[:notice] %>
+  <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+
+<table class="firstTable">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>タイトル</th>
+      <th>開始日</th>
+      <th>終了日</th>
+      <th>終日</th>
+      <th>更新日時</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.title %></td>
+        <td><%= user.startDate.to_s(:date_jp) %></td>
+        <td><%= user.endDate.to_s(:date_jp) %></td>
+        <td><%= allDayMethod(user.allDay) %></td>
+        <td><%= user.updated_at.to_s(:datetime_jp)%></td>
+        <td><%= link_to "詳細", user %></td>
+        <td><%= link_to "編集", [:edit, user] %></td>
+        <td><%= link_to "削除",  user, method: :delete, data: { confirm: "本当に削除しますか？" } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<table class="secondTable">
+  <th>予定合計<%= User.count %>件</th>
+  <th>本日の日付 <%= Time.zone.today.to_s(:date_jp) %></th>
+</table>
+
+

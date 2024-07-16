@@ -1,2 +1,6 @@
 module ApplicationHelper
-end
+    def allDayMethod(converting_target)
+      converting_target ? '○' : ' '
+    end
+  end
+  
