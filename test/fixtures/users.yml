@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ID: MyString
+  title: MyString
+  startDate: 1
+  endDate: 1
+  allDay: MyString
+  updateDate: 1
+
+two:
+  ID: MyString
+  title: MyString
+  startDate: 1
+  endDate: 1
+  allDay: MyString
+  updateDate: 1
